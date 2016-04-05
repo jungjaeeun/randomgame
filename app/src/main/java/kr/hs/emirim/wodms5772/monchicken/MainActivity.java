@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mName.setText("");
     }
 
-
     /**
      * Called when a view has been clicked.
      *
@@ -40,12 +39,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         String name = mName.getText().toString();//toString()으로 변환해서 해야한다
 
-        if(name==null){
-            (Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG)).show();
-        }else{
+//        if(name==null){
+//            (Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG)).show();
+//        }else{
+//            (Toast.makeText(this,name+"씨, 배고파요!",Toast.LENGTH_LONG)).show();
+//            Intent intent = new Intent(this,ResultActivity.class);
+//            startActivity(intent);
+//        }
+
+        try{ //if else 비슷한거
+
             (Toast.makeText(this,name+"씨, 배고파요!",Toast.LENGTH_LONG)).show();
             Intent intent = new Intent(this,ResultActivity.class);
             startActivity(intent);
+
+        }catch(NullPointerException e){
+            (Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG)).show();
+
+        }catch(Exception e){
+            (Toast.makeText(this,"뭔지 모르지만 잘 안되네요!",Toast.LENGTH_LONG)).show();
         }
 
     }
