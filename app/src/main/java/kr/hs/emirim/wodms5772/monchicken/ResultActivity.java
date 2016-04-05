@@ -7,7 +7,14 @@ import android.widget.TextView;
 /**
  * Created by appcreate29 on 2016. 3. 28..
  */
-public class ResultActivity extends ActionBarActivity {
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
+/**
+ * Created by appcreator29 on 2016. 3. 28..
+ */
+public class ResultActivity extends AppCompatActivity {
 
     TextView mResult;
 
@@ -16,7 +23,7 @@ public class ResultActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        mResult=(TextView) findViewById(R.id.result);
+        mResult = (TextView)findViewById(R.id.result);
         mResult.setText("결과");
     }
 }

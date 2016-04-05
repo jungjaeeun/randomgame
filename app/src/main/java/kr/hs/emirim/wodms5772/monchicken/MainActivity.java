@@ -19,28 +19,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mName = (EditText)findViewById(R.id.name);
-        mButton = (Button) findViewById(R.id.btn_showmethechicken); //한 xml 에서는 id 한개만
+        mButton = (Button) findViewById(R.id.btn_show_me_the_chicken); //한 xml 에서는 id 한개만
         mButton.setOnClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-
-
-
-
-
-
-
-
-
-        
         mName.setText("");
-
-
     }
+
 
     /**
      * Called when a view has been clicked.
@@ -49,8 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        (Toast.makeText(this,"배고파요!",Toast.LENGTH_LONG)).show();
-        Intent intent = new Intent(this,ResultActivity.class);
-        startActivity(intent);
+
+        String name = mName.getText().toString();//toString()으로 변환해서 해야한다
+
+        if(name==null){
+            (Toast.makeText(this,"이름을 입력해 주세요!",Toast.LENGTH_LONG)).show();
+        }else{
+            (Toast.makeText(this,name+"씨, 배고파요!",Toast.LENGTH_LONG)).show();
+            Intent intent = new Intent(this,ResultActivity.class);
+            startActivity(intent);
+        }
+
     }
 }
