@@ -24,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0,R.anim.zoom_exit);
                 finish(); //현재 액티비티의 생을 마감
             }
         },3000);
